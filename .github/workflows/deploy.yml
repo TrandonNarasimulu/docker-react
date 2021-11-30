@@ -9,9 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Docker Login
       - run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-      - name: Docker Build
       - run: docker build -t trandon/react-test -f Dockerfile.dev .
-      - name: Docker Push
       - run: docker push ${{ secrets.DOCKER_USERNAME }}/trandondockerrepo
